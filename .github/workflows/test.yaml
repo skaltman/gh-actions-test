@@ -16,6 +16,6 @@ jobs:
       - name: Install packages
         run: |
           Rscript -e 'install.packages("readr")' \
-                  -e 'remotes::install_deps("tibble")' \
+                  -e 'remotes::install.packages("tibble")' \
 
       - run: Rscript now.R
