@@ -28,7 +28,6 @@ jobs:
       - name: Install dependencies
         run: |
           install.packages("remotes")
-          remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("readr")
           remotes::install_cran("tibble")
         shell: Rscript {0}
