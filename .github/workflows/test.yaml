@@ -14,7 +14,8 @@ jobs:
           r-version: '3.6.2'
           
       - name: Install packages
-        run: Rscript -e 'install.packages("readr")'
-        run: Rscript -e 'install.packages("tibble")'
+        run: |
+          Rscript -e 'install.packages("remotes")' \
+                  -e 'remotes::install_deps(dependencies = TRUE)' \
 
       - run: Rscript now.R
