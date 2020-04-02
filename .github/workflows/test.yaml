@@ -11,11 +11,19 @@ jobs:
       - uses: actions/checkout@master
       - uses: r-lib/actions/setup-r@master
         with:
-          r-version: '3.6.2'
+          r-version: '3.5.3' # The R version to download (if necessary) and use.
           
       - name: Install packages
         run: |
-          R -e 'install.packages("readr")' 
-          R -e 'install.packages("tibble")' 
+          install.packages("readr")
+          install.packages("tibble")
+        shell: Rscript {0}
+
+      - name: Cache R packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: macOS-r-3.6-${{ hashFiles('packages.Rds') }}
+          restore-keys: macOS-r-3.6-
 
       - run: Rscript now.R
