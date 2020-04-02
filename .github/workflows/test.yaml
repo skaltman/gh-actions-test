@@ -17,6 +17,7 @@ jobs:
         run: |
           install.packages("readr")
           install.packages("tibble")
+          install.packages("magrittr")
         shell: Rscript {0}
 
       - uses: actions/cache@v1
