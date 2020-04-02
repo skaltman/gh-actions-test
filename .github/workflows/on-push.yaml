@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: r-lib/actions/setup-r@master
         with:
-          r-version: '3.56.2' 
+          r-version: '3.6.2' 
           
       - name: Install packages
         run: |
