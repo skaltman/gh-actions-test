@@ -27,3 +27,5 @@ jobs:
             ${{ runner.os }}-renv-
 
       - run: Rscript now.R
+      
+      - run: Rscript -e 'tibble::tibble(x = 1)'
