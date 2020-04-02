@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: r-lib/actions/setup-r@master
         with:
-          r-version: '3.5.3' # The R version to download (if necessary) and use.
+          r-version: '3.6.2' # The R version to download (if necessary) and use.
           
       - name: Install packages
         run: |
