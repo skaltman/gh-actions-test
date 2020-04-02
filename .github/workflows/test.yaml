@@ -19,11 +19,11 @@ jobs:
           install.packages("tibble")
         shell: Rscript {0}
 
-      - name: Cache R packages
-        uses: actions/cache@v1
+      - uses: actions/cache@v1
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: macOS-r-3.6-${{ hashFiles('packages.Rds') }}
-          restore-keys: macOS-r-3.6-
+          path: ~/Library/Application Support/renv
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
 
       - run: Rscript now.R
