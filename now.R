@@ -1,5 +1,5 @@
 library(magrittr)
 
 tibble::tibble(date = format(Sys.time(), "%b %d %X")) %>% 
-  readr::write_csv("now2.txt")
+  readr::write_csv("now.txt")
 
