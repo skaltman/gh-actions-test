@@ -1,0 +1,12 @@
+nytimes-states:
+  owner: skaltman
+  repo: gh-actions-test
+  file: now.txt
+  script: scripts/nytimes_states.R
+  sha: bbb
+nytimes-counties:
+  owner: skaltman
+  repo: gh-actions-test
+  file: now.txt
+  script: scripts/nytimes_counties.R
+  sha: ccc
