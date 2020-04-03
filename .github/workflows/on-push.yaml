@@ -18,7 +18,7 @@ jobs:
           install.packages("tidyverse")
           install.packages("here")
           install.packages("yaml")
-          install.packages("yaml")
+          install.packages("vroom")
         shell: Rscript {0}
 
       - uses: actions/cache@v1
