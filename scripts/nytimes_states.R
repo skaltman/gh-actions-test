@@ -18,15 +18,17 @@ file_out <- here::here("data/nytimes_states.rds")
 
 #===============================================================================
 
-url %>% 
-  vroom(
-    col_types = 
-      cols(
-        date = col_date(format = ""),
-        state = col_character(),
-        fips = col_integer(),
-        cases = col_double(),
-        deaths = col_double()
-      )
-  ) %>% 
-  write_rds(file_out)
+# url %>% 
+#   vroom(
+#     col_types = 
+#       cols(
+#         date = col_date(format = ""),
+#         state = col_character(),
+#         fips = col_integer(),
+#         cases = col_double(),
+#         deaths = col_double()
+#       )
+#   ) %>% 
+#   write_rds(file_out)
+
+tibble(x = 1) %>% write_rds(file_out)
