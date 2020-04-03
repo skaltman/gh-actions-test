@@ -4,5 +4,4 @@
 .Ruserdata
 .gitignore
 *.Rproj
-data/*
-data-raw/*
+
