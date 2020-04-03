@@ -6,7 +6,7 @@ name: test
 
 jobs:
   test:
-    runs-on: macOS-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
       - uses: r-lib/actions/setup-r@master
@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/cache@v1
         with:
-          path: ~/Library/Application Support/renv
+          path: ~/.local/share/renv
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
