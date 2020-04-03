@@ -32,4 +32,4 @@ file_out <- here::here("data/nytimes_counties.rds")
 #   ) %>% 
 #   write_rds(file_out)
 
-tibble(x = 1) %>% write_rds(file_out)
+# tibble(x = 1) %>% write_rds(file_out)
