@@ -15,9 +15,10 @@ jobs:
           
       - name: Install packages
         run: |
-          install.packages("readr")
-          install.packages("tibble")
-          install.packages("magrittr")
+          install.packages("tidyverse")
+          install.packages("here")
+          install.packages("yaml")
+          install.packages("yaml")
         shell: Rscript {0}
 
       - uses: actions/cache@v1
@@ -27,7 +28,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-renv-
 
-      - run: Rscript now.R
+      - run: Rscript scripts/update.R
       
       - name: Commit results
         run: |
