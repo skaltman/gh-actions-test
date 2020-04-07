@@ -28,9 +28,9 @@ latest_commit <- function(owner, repo, file) {
 latest_data <- function(dataset) {
   v <- datasets[[dataset]]
   #new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
-  x <- str_c(v$owner, v$repo, v$file)
+  # x <- str_c(v$owner, v$repo, v$file)
   GET(
-    "https://api.github.com/repos/nytimes/covid-19-data/commits?path=us-states.csv"
+    str_glue("https://api.github.com/repos/{v$owner}/{v$repo}/commits?path={v$file}")
   ) %>% 
     content() %>%
     first()
