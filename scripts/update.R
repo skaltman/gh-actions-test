@@ -26,8 +26,8 @@ latest_commit <- function(owner, repo, file) {
 latest_data <- function(dataset) {
   v <- datasets[[dataset]]
 
-  # new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
-  # 
+  new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
+
   # if (new_sha != v$sha) {
   #   # source(v$script)
   #   v$sha <- new_sha
