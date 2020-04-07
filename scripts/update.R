@@ -29,18 +29,21 @@ latest_data <- function(dataset) {
   v <- datasets[[dataset]]
   #new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
   # x <- str_c(v$owner, v$repo, v$file)
-  GET(
-    str_glue("https://api.github.com/repos/{v$owner}/{v$repo}/commits?path={v$file}")
-  ) %>% 
+  
+  new_sha <-
+    GET(
+      str_glue("https://api.github.com/repos/{v$owner}/{v$repo}/commits?path={v$file}")
+    ) %>% 
     content() %>%
-    first()
-
-  # if (new_sha != v$sha) {
-  #   # source(v$script)
-  #   v$sha <- new_sha
-  # }
-  # 
-  # return(v)
+    first() %>% 
+    pluck("sha")
+  
+  if (new_sha != v$sha) {
+    # source(v$script)
+    v$sha <- new_sha
+  }
+  
+  return(v)
 }
 
 datasets <-
