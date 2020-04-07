@@ -38,12 +38,12 @@ latest_data <- function(dataset) {
     first() %>% 
     pluck("sha")
   
-  if (new_sha != v$sha) {
-    # source(v$script)
-    v$sha <- new_sha
-  }
-  
-  return(v)
+  # if (new_sha != v$sha) {
+  #   # source(v$script)
+  #   v$sha <- new_sha
+  # }
+  # 
+  # return(v)
 }
 
 datasets <-
