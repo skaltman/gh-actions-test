@@ -27,7 +27,13 @@ latest_commit <- function(owner, repo, file) {
 
 latest_data <- function(dataset) {
   v <- datasets[[dataset]]
-  new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
+  #new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
+  
+  GET(
+    "https://api.github.com/repos/nytimes/covid-19-data/commits?path=us-states.csv"
+  ) %>% 
+    content() %>%
+    first()
 
   # if (new_sha != v$sha) {
   #   # source(v$script)
