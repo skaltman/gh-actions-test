@@ -44,9 +44,9 @@ datasets <-
 
 datasets %>%
   names() %>%
-  set_names() %>%
-  map(latest_data) %>%
-  write_yaml(file_datasets)
+  set_names() #  %>%
+  #map(latest_data) %>%
+  #write_yaml(file_datasets)
 
 
 
