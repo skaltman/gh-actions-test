@@ -25,22 +25,22 @@ latest_commit <- function(owner, repo, file) {
 
 tibble(x = 1)
 
-# latest_data <- function(dataset) {
-#   v <- datasets[[dataset]]
-# 
-#   new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
-# 
-#   if (new_sha != v$sha) {
-#    # source(v$script)
-#     v$sha <- new_sha
-#   }
-# 
-#   return(v)
-# }
-# 
-# datasets <-
-#   file_datasets %>%
-#   read_yaml()
+latest_data <- function(dataset) {
+  v <- datasets[[dataset]]
+
+  new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
+
+  if (new_sha != v$sha) {
+    source(v$script)
+    v$sha <- new_sha
+  }
+
+  return(v)
+}
+
+datasets <-
+  file_datasets %>%
+  read_yaml()
 # 
 # datasets %>%
 #   names() %>%
