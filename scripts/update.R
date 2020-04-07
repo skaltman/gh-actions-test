@@ -23,6 +23,9 @@ latest_commit <- function(owner, repo, file) {
     first()
 }
 
+x <- 
+  GET("https://api.github.com/repos/nytimes/covid-19-data/commits?path=us-states.csv")
+
 latest_data <- function(dataset) {
   v <- datasets[[dataset]]
   source(v$script)
