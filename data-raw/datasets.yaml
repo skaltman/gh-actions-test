@@ -1,12 +1,12 @@
 nytimes-states:
-  owner: nytimes
-  repo: covid-19-data
-  file: us-states.csv
+  owner: skaltman
+  repo: gh-actions-test
+  file: now.txt
   script: scripts/nytimes_states.R
-  sha: aaa
+  sha: bbb
 nytimes-counties:
-  owner: nytimes
-  repo: covid-19-data
-  file: us-counties.csv
+  owner: skaltman
+  repo: gh-actions-test
+  file: now.txt
   script: scripts/nytimes_counties.R
-  sha: aaa
+  sha: ccc

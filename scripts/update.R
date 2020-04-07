@@ -28,12 +28,12 @@ latest_data <- function(dataset) {
 
   new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
 
-  # if (new_sha != v$sha) {
-  #   # source(v$script)
-  #   v$sha <- new_sha
-  # }
-  # 
-  # return(v)
+  if (new_sha != v$sha) {
+    # source(v$script)
+    v$sha <- new_sha
+  }
+
+  return(v)
 }
 
 datasets <-
@@ -43,8 +43,8 @@ datasets <-
 datasets %>%
   names() %>%
   set_names() %>%
-  map(latest_data) # %>%
-  #write_yaml(file_datasets)
+  map(latest_data) %>%
+  write_yaml(file_datasets)
 
 
 
