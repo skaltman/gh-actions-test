@@ -19,6 +19,7 @@ jobs:
           install.packages("here")
           install.packages("yaml")
           install.packages("vroom")
+          install.packages("httr")
         shell: Rscript {0}
 
       - uses: actions/cache@v1
