@@ -32,7 +32,8 @@ latest_data <- function(dataset) {
   
   new_sha <-
     GET(
-      str_glue("https://api.github.com/repos/{v$owner}/{v$repo}/commits?path={v$file}")
+      "https://api.github.com/repos/nytimes/covid-19-data/commits?path=us-counties.csv"
+      # str_glue("https://api.github.com/repo/{v$owner}/{v$repo}/commits?path={v$file}")
     ) %>% 
     content() %>%
     first() %>% 
