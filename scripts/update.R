@@ -12,35 +12,23 @@ library(yaml)
   # File with data about each dataset
 file_datasets <- here::here("data-raw/datasets.yaml")
 #   # API query for commits
-# query <- 
-#   "https://api.github.com/repos/{owner}/{repo}/commits?path={file}"
+query <-
+  "https://api.github.com/repos/{owner}/{repo}/commits?path={file}"
 
 #===============================================================================
 
 latest_commit <- function(owner, repo, file) {
-  GET(
-    "https://api.github.com/repos/nytimes/covid-19-data/commits?path=us-states.csv"
-  ) %>% 
+  GET(str_glue(query), authenticate(Sys.getenv("GITHUB_TOKEN"))) %>% 
     content() %>%
     first()
 }
 
 latest_data <- function(dataset) {
   v <- datasets[[dataset]]
-  #new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
-  # x <- str_c(v$owner, v$repo, v$file)
-  
-  new_sha <-
-    GET(
-      "https://api.github.com/repos/nytimes/covid-19-data/commits?path=us-counties.csv"
-      # str_glue("https://api.github.com/repo/{v$owner}/{v$repo}/commits?path={v$file}")
-    ) %>% 
-    content() %>%
-    first() %>% 
-    pluck("sha")
+  new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
   
   if (new_sha != v$sha) {
-    # source(v$script)
+    source(v$script)
     v$sha <- new_sha
   }
 
@@ -54,9 +42,8 @@ datasets <-
 datasets %>%
   names() %>%
   set_names() %>%
-  walk(latest_data)
-  # map(latest_data) %>%
-  # write_yaml(file_datasets)
+  map(latest_data) %>%
+  write_yaml(file_datasets)
 
 
 
