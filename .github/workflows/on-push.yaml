@@ -31,7 +31,6 @@ jobs:
 
       - run: |
           R -e Sys.setenv("GITHUB_TOKEN" = ${{ secrets.GITHUB_TOKEN }})
-          Rscript scripts/update.R
       
       - name: Commit results
         run: |
