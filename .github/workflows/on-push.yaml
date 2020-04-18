@@ -28,10 +28,11 @@ jobs:
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
-
-      - run: |
-          R -e Sys.setenv("GITHUB_TOKEN" = ${{ secrets.GITHUB_TOKEN }})
       
+      - name: Run script
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     
       - name: Commit results
         run: |
           git commit data/ data-raw/ -m 'update data' || echo "No changes to commit"
