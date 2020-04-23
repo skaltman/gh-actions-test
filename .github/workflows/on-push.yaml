@@ -32,7 +32,7 @@ jobs:
       - name: Run script
         run: |
           echo "GITHUB_TOKEN=${{secrets.GITHUB_TOKEN}}" >> ~/.Renviron
-          Rscript -e "scripts/update.R"
+          Rscript scripts/update.R
      
       - name: Commit results
         run: |
