@@ -18,21 +18,21 @@ query <-
 #===============================================================================
 
 latest_commit <- function(owner, repo, file) {
-  GET(str_glue(query), authenticate(Sys.getenv("GITHUB_TOKEN"))) %>% 
+  GET(str_glue(query), authenticate(Sys.getenv("GITHUB_PAT"), "")) %>% 
     content() %>%
     first()
 }
 
 latest_data <- function(dataset) {
-  v <- datasets[[dataset]]
-  new_sha <- latest_commit(v$owner, v$repo, v$file)$sha
+  new_sha <- 
+    latest_commit(dataset$owner, dataset$repo, dataset$file)$sha
   
-  if (new_sha != v$sha) {
-    source(v$script)
-    v$sha <- new_sha
+  if (new_sha != dataset$sha) {
+    source(dataset$script)
+    dataset$sha <- new_sha
   }
 
-  return(v)
+  return(dataset)
 }
 
 datasets <-
@@ -42,9 +42,8 @@ datasets <-
 datasets %>%
   names() %>%
   set_names() %>%
-  map(latest_data) %>%
+  map(~ latest_data(dataset = datasets[[.]])) %>%
   write_yaml(file_datasets)
-
 
 
 
