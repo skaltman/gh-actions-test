@@ -3,10 +3,10 @@ nytimes-states:
   repo: covid-19-data
   file: us-states.csv
   script: scripts/nytimes_states.R
-  sha: 2f3aa29fc78c2d43aafde81b71c56aa81fcaef18
+  sha: 135140e168e639aed39659294cf25f8ab2e8b9e2
 nytimes-counties:
   owner: nytimes
   repo: covid-19-data
   file: us-counties.csv
   script: scripts/nytimes_counties.R
-  sha: 2f3aa29fc78c2d43aafde81b71c56aa81fcaef18
+  sha: 135140e168e639aed39659294cf25f8ab2e8b9e2
